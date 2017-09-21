@@ -36,7 +36,7 @@
     background: white;
     border-style: solid;
     border-color:grey;
-    position: fixed!important;
+    position: fixed;
     overflow-x: auto;
     overflow-y: auto;
     border-radius: 15px;
@@ -46,8 +46,20 @@
     text-align:justify;
 }
 
-#multiply {
-    
+p {
+    display: block;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+}
+
+h3 {
+    display: block;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
 }
 
 .big-btn {

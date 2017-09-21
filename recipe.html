@@ -5,14 +5,17 @@
 <link rel="stylesheet" type="text/css" href="recipe.css">
 
 <body>
+    <h1 id="Title">
+        Recipe Measurments Multiplier (RMM)
+    </h1>
     <div id="leftside"class="sidebar" style="width:24%">
         <h1 id="recipeChoice" class="left"> Recipe Choice</h2>
         <ol>
         <li>
-            <button type="button" class="big-btn" onclick="Recipe1()"> Pico de Gallo </button>
+            <button type="button" class="big-btn" onclick="Recipe1()"> Chicken and Green Chile Enchiladas</button>
         </li>
         <li>
-            <button type="button" class="big-btn" onclick="Recipe2()"> Chicken and Green Chile Enchiladas </button>
+            <button type="button" class="big-btn" onclick="Recipe2()"> Pico de Gallo </button>
         </li>
         <li>
             <button type="button" class="big-btn" onclick="Recipe3()"> Tres Leches Cake </button>
@@ -25,10 +28,33 @@
         </li>
         </ol>
     </div>
-    <div id="recipe"class="centerbox" style="width:48%">
+    <div id="recipe" class="centerbox" style="width:48%">
         <h1 id="recipeChoice" class="left"> Recipe Inputs</h2>
-        <p>
+        <p id="entry">
             Enter the amount you would like to multiply the recipe by: <input id="multiply" type="text" id="partial" >
+        </p>
+        <p id="enchilada">
+            Yield: 4 servings <br>
+            Total:45 <br>
+            minPrep: 25 min <br>
+            Cook: 20 min <br>
+            <br>
+            2 cups shredded rotisserie chicken <br>
+            11/2 cups shredded Mexican or Cheddar cheese, divided <br>
+            1/2 cup Ranch Dressing <br>
+            1/4 cup sour cream <br>
+            2 tablespoons diced green chiles, rinsed and drained <br>
+            1 can (19 ounce) enchilada sauce <br>
+            4 10-inch flour tortillas, warmed <br>
+        </p>
+        <h3> Directions </h3>
+        <p> Preheat the oven to 350 degrees F. <br>
+        <br>
+        In a medium bowl, combine the chicken, 3/4 cup of the cheese, dressing, sour cream and green chiles and stir until well blended. Divide the mixture evenly between the tortillas, and roll the tortillas. <br>
+        <br>
+        Place the tortillas, seam side down in an oiled 9-inch baking dish. Spoon the enchilada sauce around the tortillas and top with the remaining cheese. <br>
+        <br>
+        Bake for 20 minutes or until the cheese is melted and is bubbly. <br>
         </p>
     </div>
     <div id="rightside"class="othersidebar" style="width:24%">
@@ -36,9 +62,7 @@
         <img id="enchilada" src="http://food.fnr.sndimg.com/content/dam/images/food/fullset/2010/9/30/0/HIDDEN-VALLEY-RANCH_Green-Chile-Chicken-Enchiladas_s3x4.jpg.rend.hgtvcom.616.462.suffix/1383258039640.jpeg" alt="enchilada">
         <!-- http://www.foodnetwork.com/recipes/hidden-valleyreg-green-chile-chicken-enchiladas-recipe-2085376 --->
     </div>
-<h1 id="Title">
-    Recipe Measurments Multiplier (RMM)
-</h1>
+
 
 </body>
 </html>
