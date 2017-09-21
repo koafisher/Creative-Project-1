@@ -36,7 +36,7 @@
     background: white;
     border-style: solid;
     border-color:grey;
-    position: fixed;
+    position: fixed!important;
     overflow-x: auto;
     overflow-y: auto;
     border-radius: 15px;
