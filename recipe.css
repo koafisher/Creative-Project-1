@@ -10,13 +10,21 @@
     padding-left: 16px;
 }
 
-#enchilada {
+#directions {
+    display: block;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+}
+
+#enchilada.centerbox {
     max-width:95%;
     max-height:95%;
     display: none;
 }
 
-#pico {
+#pico.centerbox {
     max-width:95%;
     max-height:95%;
     display: none;
@@ -36,7 +44,7 @@
     width:140%
 }
 
-#colada {
+#colada.centerbox {
     max-width:95%;
     max-height:95%;
     display: none;
@@ -46,7 +54,7 @@
     display: none;
 }
 
-#cake {
+#cake.centerbox {
     max-width:95%;
     max-height:95%;
     display: none;
@@ -56,7 +64,7 @@
     display: none;
 }
 
-#custom {
+#custom.centerbox {
     display: none;
 }
 
@@ -122,6 +130,14 @@ p {
 }
 
 h3 {
+    display: block;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+}
+
+h2 {
     display: block;
     padding-top: 8px;
     padding-right: 16px;

@@ -3,7 +3,7 @@
     <title>Measuring Up!</title>
 </head>
 <link rel="stylesheet" type="text/css" href="recipe.css">
-<script>
+<script id="javascript">
     function displayEnchilada() {
         hideAll();
         document.getElementById("enchilada").style.display = "inline-block";
@@ -19,7 +19,7 @@
         document.getElementById("coladaPic").style.display="inline-block";
         document.getElementById("colada").style.display = "inline-block";
     }
-    function displayCake() {
+    function displayCake(id) {
         hideAll();
         document.getElementById("cakePic").style.display="inline-block";
         document.getElementById("cake").style.display = "inline-block";
@@ -29,17 +29,22 @@
         document.getElementById("customPic").style.display="inline-block";
         document.getElementById("custom").style.display = "inline-block";
     }
+    function display(id) {
+        hideAll();
+        console.log(id);
+        document.querySelector('#'+id+'.centerbox').style.display="inline-block";
+        document.getElementById(id + "Pic").style.display="inline-block";
+    }
     function hideAll(){
-        document.getElementById("enchilada").style.display = "none";
-        document.getElementById("pico").style.display = "none";
-        document.getElementById("colada").style.display = "none";
-        document.getElementById("cake").style.display = "none";
-        document.getElementById("custom").style.display = "none";
-        document.getElementById("enchiladaPic").style.display = "none";
-        document.getElementById("picoPic").style.display = "none";
-        document.getElementById("coladaPic").style.display = "none";
-        document.getElementById("cakePic").style.display = "none";
-        document.getElementById("customPic").style.display = "none";
+        var centers = document.getElementsByClassName("centerbox");
+        for (i=0; i < centers.length; i++) {
+            console.log(centers[i].id);
+            document.querySelector('#'+centers[i].id+'.centerbox').style.display = "none";
+        }
+        var pics = document.getElementsByClassName("othersidebar");
+        for (i=0; i < pics.length; i++) {
+            document.querySelector('#'+pics[i].id+'.othersidebar').style.display = "none";
+        }
     }
 
 var mfunc = function() {
@@ -53,9 +58,81 @@ var mfunc = function() {
     }
     inner += "</ul>";*/
     }
+var RecipeName = function() {
+    var name = "";
+    name += document.getElementById("newName").value;
+    document.getElementById("CustomRecipe").innerHTML = name;
+    var element = document.getElementById("newName");
+    element.parentNode.removeChild(newName);
+    element = document.getElementById("recipeName");
+    element.parentNode.removeChild(recipeName);
+}
+
+var NewIngredient = function() {
+    var ingredient = document.getElementById("Ingredientname").value;
+    var inner = document.getElementById("ingredientlist");
+    inner.innerHTML += "<li>" + ingredient + "</li>";
+    document.getElementById("Ingredientname").value = "";
+}
+
+
+
+var FinishRecipe = function() {
+    var element = document.getElementById("Ingredient");
+    element.parentNode.removeChild(Ingredient);
+    element = document.getElementById("Ingredientname");
+    element.parentNode.removeChild(Ingredientname);
+    element = document.getElementById("Finish");
+    element.parentNode.removeChild(Finish);
+    
+    /*Modifying the old custom recipe section*/
+    element = document.getElementById("custom");
+    var newstringname = document.getElementById("CustomRecipe").innerHTML;
+    element.id = document.getElementById("CustomRecipe").innerHTML;
+    element = document.getElementById("ingredientlist");
+    element.id = "ing";
+    
+    /*Adding function to switch when button is pressed*/
+    
+    element = document.getElementById("javascript");
+    element = document.getElementById("CustomRecipe");
+    element.id = document.getElementById("recipeChoice").id;
+    var ingredient = document.getElementById("directiontext").value;
+    var inner = document.getElementById("insertdirection");
+    inner.innerHTML = ingredient;
+    element.id = "";
+    
+    /*add button*/
+    element = document.getElementById("custombutton");
+    element.id = newstringname;
+    element.setAttribute('onclick','display(id)')
+    element.innerHTML = newstringname;
+
+    element = document.getElementById("buttonlist");
+    element.innerHTML += '<li> <button id="custombutton" type="button" class="big-btn" onclick="displayCustom()"> Custom </button> </li>'
+    
+    /*add image*/
+    var img = '<div id="'+ newstringname +'Pic"class="othersidebar">\
+    \
+    <img id="" src="" alt="'+ newstringname +'">\
+    </div>'
+    element = document.getElementById("container2");
+    element.innerHTML += img;
+    
+    /*Adding a new custom recipe section*/
+    var inner = '<div id = "custom" class = "centerbox"> <h2 id="CustomRecipe" class="left">Custom</h2> <p>    <input id="newName" type="text"  ><input id="recipeName" type="submit" onclick="RecipeName()" value="Name Recipe" > </p> <!--h2 id="recipeChoice" class="left">Tres Leches Cake with Mango</h2--> <h3> Ingredients </h3> <p> <ul id="ingredientlist"> <!--li> 4 large eggs </li--> </ul></p><p> <input id="Ingredientname" type="text" placeholder="# unit ingredient"><input id="Ingredient" type="submit" onclick="NewIngredient()" value="Add Ingredient"> </p> <h3>Directions</h3> <p id="insertdirection">\
+    <input id="directiontext" type="text" placeholder="Place directions here for your recipe" style="height:150px;width:250px">\
+    </p> <br> <br> <p><input id="Finish" type="submit" onclick="FinishRecipe()" value="Finish Recipe" > </p></div>';
+    
+    element = document.getElementById("containment");
+    element.innerHTML += inner;
+    
+    
+    
+}
+
 </script>
 <body>
-    <div id="containment">
     <h1 id="Title">
         Recipe Selector
     </h1>
@@ -63,25 +140,25 @@ var mfunc = function() {
      <p id="entry">
      Enter the amount you would like to multiply the recipe by: <input id="multiply" type="text"  ><input id="factor" type="submit" onclick="mfunc()" >
      </p-->
-     </div>
+     <div id="containment">
     <div id="leftside"class="sidebar">
         <h1 id="recipeChoice" class="left" align="center"> Recipe Choice</h2>
-        <ol>
+        <ol id="buttonlist">
         <li>
-            <button type="button" class="big-btn" onclick="displayEnchilada()"> Chicken and Green Chile Enchiladas</button>
+            <button id="enchilada" type="button" class="big-btn" onclick="display(id)"> Chicken and Green Chile Enchiladas</button>
         </li>
         <li>
-            <button type="button" class="big-btn" onclick="displayPico()"> Pico de Gallo </button>
+            <button id="pico" type="button" class="big-btn" onclick="display(id)"> Pico de Gallo </button>
         </li>
         <li>
-            <button type="button" class="big-btn" onclick="displayColada()"> Pi&ntilde;a Colada</button>
+            <button id="colada" type="button" class="big-btn" onclick="display(id)"> Pi&ntilde;a Colada</button>
         </li>
         <li>
-            <button type="button" class="big-btn" onclick="displayCake()"> Tres Leches Cake </button>
+            <button id="cake" type="button" class="big-btn" onclick="display(id)"> Tres Leches Cake </button>
         </li>
-        <!--li>
-            <button type="button" class="big-btn" onclick="displayCustom()"> Custom </button>
-        </li-->
+        <li>
+            <button id="custombutton" type="button" class="big-btn" onclick="displayCustom()"> Custom </button>
+        </li>
         </ol>
     </div>
     <div id="enchilada" class="centerbox">
@@ -251,78 +328,34 @@ var mfunc = function() {
         </p>
     </div>
     <div id = "custom" class = "centerbox">
-        <h2 id="recipeChoice" class="left">Custom</h2>
-        <h2 id="recipeChoice" class="left">Tres Leches Cake with Mango</h2>
+        <h2 id="CustomRecipe" class="left">Custom</h2>
         <p>
-        Total: 1 hr 5 min <br>
-        Prep: 35 min <br>
-        Cook: 30 min <br>
-        Yield: 8-10 servings <br>
+        <input id="newName" type="text"  ><input id="recipeName" type="submit" onclick="RecipeName()" value="Name Recipe" >
         </p>
+        <!--h2 id="recipeChoice" class="left">Tres Leches Cake with Mango</h2-->
         <h3> Ingredients </h3>
         <p>
-        <ul>
-            <li>
-                Vegetable oil, for greasing
-            </li>
-            <li>
-                4 large eggs
-            </li>
-            <li>
-                1 cup sugar
-            </li>
-            <li>
-                2/3 cup unsalted butter, melted
-            </li>
-            <li>
-                1 teaspoon vanilla extract
-            </li>
-            <li>
-                2 1/4 cups whole milk
-            </li>
-            <li>
-                1 1/2 cups cake flour
-            </li>
-            <li>
-                1 teaspoon baking powder
-            </li>
-            <li>
-                1/4 teaspoon salt
-            </li>
-            <li>
-                12-ounce can evaporated milk
-            </li>
-            <li>
-                14-ounce can sweetened condensed milk
-            </li>
-            <li>
-                2 large ripe mangoes
-            </li>
-            <li>
-                3 tablespoons sugar
-            </li>
-            <li>
-                1 cup heavy cream
-            </li>
-            <li>
-                Ground cinnamon, for sprinkling
-            </li>
-            <ul>
-                </p>
-                <h3>Directions</h3>
-                <p>
-                <br>
-                Preheat the oven to 350 degrees F. Grease an 8-inch square baking pan with vegetable oil and line the bottom with parchment paper.<br>
-                <br>
-                Make the cake: Beat the eggs and sugar in a large bowl with a mixer until pale and slightly thick, about 6 minutes. Slowly beat in the melted butter, then beat in the vanilla and 1/4 cup whole milk.<br>
-                <br>
-                Whisk the flour, baking powder and salt in a bowl. Sift the flour mixture over the egg mixture, then gently fold together with a rubber spatula to make a thick batter. Transfer the batter to the prepared pan and bake until a toothpick inserted into the center of the cake comes out clean, about 30 minutes. Run a knife along the edges to release the cake from the pan. <br>
-                <br>
-                Meanwhile, whisk the remaining 2 cups whole milk, the evaporated milk, condensed milk and rum in a bowl. Pierce the warm cake all over with a fork, then pour the milk mixture gradually and evenly on top, letting the cake absorb the liquid until all is used. Cover and refrigerate at least 1 hour or overnight. <br>
-                <br>
-                Before serving, make the topping: Peel, pit and dice the mangoes. Puree half the mangoes in a blender with 2 tablespoons sugar. Transfer to a bowl and fold in the remaining diced mango.In a separate bowl, beat the heavy cream and the remaining 1 tablespoon sugar with a mixer until soft peaks form. Slice the cake; top each piece with the whipped cream and sprinkle with cinnamon. Serve the mango topping on the side. <br>
-                </p>
-
+        <ul id="ingredientlist">
+            <!--li>
+             4 large eggs
+             </li-->
+        </ul>
+        </p>
+        <p>
+        <input id="Ingredientname" type="text" placeholder="# unit ingredient"><input id="Ingredient" type="submit" onclick="NewIngredient()" value="Add Ingredient">
+        </p>
+            <h3>Directions</h3>
+        <p id="insertdirection">
+        <input id="directiontext" type="text" placeholder="Place directions here for your recipe" style="height:150px;width:250px">
+        </p>
+        <br>
+        <br>
+        <p>
+        <input id="Finish" type="submit" onclick="FinishRecipe()" value="Finish Recipe" >
+        </p>
+    </div>
+    
+    <div id="container2">
     </div>
     <div id="picoPic"class="othersidebar">
         <img id="" src="http://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/5/3/1/FNM_Pico-De-Gallo_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371597564807.jpeg" alt="Pico de Gallo">
@@ -343,7 +376,7 @@ var mfunc = function() {
         <img id="yo" src="http://food.fnr.sndimg.com/content/dam/images/food/fullset/2010/9/30/0/HIDDEN-VALLEY-RANCH_Green-Chile-Chicken-Enchiladas_s3x4.jpg.rend.hgtvcom.616.462.suffix/1383258039640.jpeg" alt="enchilada">
         <!-- http://www.foodnetwork.com/recipes/hidden-valleyreg-green-chile-chicken-enchiladas-recipe-2085376 -->
     </div>
-
+    </div>
 
 </body>
 </html>
