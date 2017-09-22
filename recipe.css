@@ -13,6 +13,8 @@
 }
 
 #pico {
+    max-width:95%;
+    max-height:95%;
     display: none;
 }
 
@@ -26,7 +28,13 @@
     display: none;
 }
 
+#pineapple {
+    width:140%
+}
+
 #colada {
+    max-width:95%;
+    max-height:95%;
     display: none;
 }
 
@@ -35,6 +43,8 @@
 }
 
 #cake {
+    max-width:95%;
+    max-height:95%;
     display: none;
 }
 
@@ -53,7 +63,7 @@
 .sidebar {
     margin-top:10%;
     background: white;
-    width: 18%;
+    width: 21%;
     border-style: solid;
     border-color:grey;
     float: left;
@@ -88,8 +98,8 @@
     border-style: solid;
     border-color:grey;
 /*    position: fixed!important; */
-/*    overflow-x: auto;
-    overflow-y: auto; */
+/*    overflow-x: auto;*/
+    overflow-y: auto;
     border-radius: 15px;
 }
 
