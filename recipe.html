@@ -3,40 +3,78 @@
     <title>Measuring Up!</title>
 </head>
 <link rel="stylesheet" type="text/css" href="recipe.css">
-
+<script>
+    function displayEnchilada() {
+        hideAll();
+        document.getElementById("enchilada").style.display = "inline-block";
+        document.getElementById("enchiladaPic").style.display = "inline-block";
+    }
+    function displayPico() {
+        hideAll();
+        document.getElementById("picoPic").style.display ="inline-block";
+        document.getElementById("pico").style.display = "inline-block";
+    }
+    function displayColada() {
+        hideAll();
+        document.getElementById("coladaPic").style.display="inline-block";
+        document.getElementById("colada").style.display = "inline-block";
+    }
+    function displayCake() {
+        hideAll();
+        document.getElementById("cakePic").style.display="inline-block";
+        document.getElementById("cake").style.display = "inline-block";
+    }
+    function displayCustom() {
+        hideAll();
+        document.getElementById("customPic").style.display="inline-block";
+        document.getElementById("custom").style.display = "inline-block";
+    }
+    function hideAll(){
+        document.getElementById("enchilada").style.display = "none";
+        document.getElementById("pico").style.display = "none";
+        document.getElementById("colada").style.display = "none";
+        document.getElementById("cake").style.display = "none";
+        document.getElementById("custom").style.display = "none";
+        document.getElementById("enchiladaPic").style.display = "none";
+        document.getElementById("picoPic").style.display = "none";
+        document.getElementById("coladaPic").style.display = "none";
+        document.getElementById("cakePic").style.display = "none";
+        document.getElementById("customPic").style.display = "none";
+    }
+</script>
 <body>
     <h1 id="Title">
-        Recipe Measurments Multiplier (RMM)
+        Recipe Measurements Multiplier (RMM)
     </h1>
-    <div id="leftside"class="sidebar" style="width:24%">
+    <div id="leftside"class="sidebar">
         <h1 id="recipeChoice" class="left"> Recipe Choice</h2>
         <ol>
         <li>
-            <button type="button" class="big-btn" onclick="Recipe1()"> Chicken and Green Chile Enchiladas</button>
+            <button type="button" class="big-btn" onclick="displayEnchilada()"> Chicken and Green Chile Enchiladas</button>
         </li>
         <li>
-            <button type="button" class="big-btn" onclick="Recipe2()"> Pico de Gallo </button>
+            <button type="button" class="big-btn" onclick="displayPico()"> Pico de Gallo </button>
         </li>
         <li>
-            <button type="button" class="big-btn" onclick="Recipe3()"> Tres Leches Cake </button>
+            <button type="button" class="big-btn" onclick="displayColada()"> Pi&ntildea Colada</button>
         </li>
         <li>
-            <button type="button" class="big-btn" onclick="Recipe4()"> Piña Colada </button>
+            <button type="button" class="big-btn" onclick="displayCake()"> Tres Leches Cake </button>
         </li>
         <li>
-            <button type="button" class="big-btn" onclick="Custom()"> Custom </button>
+            <button type="button" class="big-btn" onclick="displayCustom()"> Custom </button>
         </li>
         </ol>
     </div>
-    <div id="recipe" class="centerbox" style="width:48%">
-        <h1 id="recipeChoice" class="left"> Recipe Inputs</h2>
+    <div id="enchilada" class="centerbox">
+        <h2 id="recipeChoice" class="left"> Recipe Inputs</h2>
         <p id="entry">
             Enter the amount you would like to multiply the recipe by: <input id="multiply" type="text" id="partial" >
         </p>
-        <p id="enchilada">
+        <p>
             Yield: 4 servings <br>
-            Total:45 <br>
-            minPrep: 25 min <br>
+            Total:45 min <br>
+            Prep: 25 min <br>
             Cook: 20 min <br>
             <br>
             2 cups shredded rotisserie chicken <br>
@@ -57,10 +95,56 @@
         Bake for 20 minutes or until the cheese is melted and is bubbly. <br>
         </p>
     </div>
-    <div id="rightside"class="othersidebar" style="width:24%">
+    <div id = "pico" class = "centerbox">
+        <h2 id="recipeChoice" class="left"> Pico de Gallo</h2>
+        <p>
+            Yield: 4 servings <br>
+            Total: 15 min <br>
+            Prep: 15 min <br>
+        </p>
+    </div>
+     <div id = "colada" class = "centerbox">
+        <h2 id="recipeChoice" class="left">Pina Colada</h2>
+        <p>
+            Yield: 4 servings <br>
+            Total: 15 min <br>
+            Prep: 15 min <br>
+        </p>
+    </div>  
+     <div id = "cake" class = "centerbox">
+        <h2 id="recipeChoice" class="left">Tres Leches Cake</h2>
+        <p>
+            Yield: 4 servings <br>
+            Total: 15 min <br>
+            Prep: 15 min <br>
+        </p>
+    </div>
+    <div id = "custom" class = "centerbox">
+        <h2 id="recipeChoice" class="left">Custom</h2>
+        <p>
+            Yield: 4 servings <br>
+            Total: 15 min <br>
+            Prep: 15 min <br>
+        </p>
+    </div>
+    <div id="picoPic"class="othersidebar">
+        <img id="" src="https://upload.wikimedia.org/wikipedia/commons/1/14/Pico_de_Gallo_Homemade_2014.JPG" alt="Pico de Gallo">
+    </div>
+    <div id="coladaPic"class="othersidebar">
+        <img id="" src = "https://upload.wikimedia.org/wikipedia/commons/b/b2/Pi%C3%B1a_Colada.jpg" alt="Pina Colada">
+    </div>
+    <div id="cakePic"class="othersidebar">
+        <img id="" src="" alt="Tres Leches Cake">
+    </div>
+
+    <div id="customPic"class="othersidebar">
+        <img id="" src="" alt="Custom">
+    </div>
+
+    <div id="enchiladaPic"class="othersidebar">
         
-        <img id="enchilada" src="http://food.fnr.sndimg.com/content/dam/images/food/fullset/2010/9/30/0/HIDDEN-VALLEY-RANCH_Green-Chile-Chicken-Enchiladas_s3x4.jpg.rend.hgtvcom.616.462.suffix/1383258039640.jpeg" alt="enchilada">
-        <!-- http://www.foodnetwork.com/recipes/hidden-valleyreg-green-chile-chicken-enchiladas-recipe-2085376 --->
+        <img id="yo" src="http://food.fnr.sndimg.com/content/dam/images/food/fullset/2010/9/30/0/HIDDEN-VALLEY-RANCH_Green-Chile-Chicken-Enchiladas_s3x4.jpg.rend.hgtvcom.616.462.suffix/1383258039640.jpeg" alt="enchilada">
+        <!-- http://www.foodnetwork.com/recipes/hidden-valleyreg-green-chile-chicken-enchiladas-recipe-2085376 -->
     </div>
 
 
