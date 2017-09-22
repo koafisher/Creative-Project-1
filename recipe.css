@@ -1,3 +1,7 @@
+* {
+    font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+}
+
 #recipeChoice {
     display: block;
     padding-top: 8px;
@@ -61,14 +65,8 @@
 }
 
 .sidebar {
-<<<<<<< HEAD
-    margin-top:10%;
     background: white;
     width: 21%;
-=======
-    background: #FFFFE0;
-    width: 18%;
->>>>>>> 762a99f69b1fe431adb3df31e794ba739a5ff2c7
     border-style: solid;
     border-color:grey;
     float: left;
